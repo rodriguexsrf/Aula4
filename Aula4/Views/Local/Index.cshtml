@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Aula4.Models.Local>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Locais</h1>
+
+<p>
+    <a asp-action="Create">Cadastrar Novo Local</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome do Local</th>
+            <th>Faixa Etária Recomendada</th>
+            <th>Endereço</th>
+            <th>Tipo de Local</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                <td>@Html.DisplayFor(modelItem => item.FaixaEtariaRecomendada) anos</td>
+                <td>@Html.DisplayFor(modelItem => item.Endereco)</td>
+                <td>@Html.DisplayFor(modelItem => item.TipoLocal)</td>
+                <td>
+                    @Html.ActionLink("✏", "Edit", new { id = ((List<Aula4.Models.Local>)Model).IndexOf(item) }) |
+                    @Html.ActionLink("👁", "Details", new { index = ((List<Aula4.Models.Local>)Model).IndexOf(item) }) |
+                    @Html.ActionLink("🗑", "Delete", new { id = ((List<Aula4.Models.Local>)Model).IndexOf(item) })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

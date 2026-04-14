@@ -1,0 +1,46 @@
+﻿@model Aula4.Models.Local
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalhes do Local</h1>
+
+<div>
+    <h4>Local</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Nome do Local
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt class="col-sm-2">
+            Faixa Etária Recomendada
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FaixaEtariaRecomendada) anos
+        </dd>
+
+        <dt class="col-sm-2">
+            Endereço
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Endereco)
+        </dd>
+
+        <dt class="col-sm-2">
+            Tipo de Local
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TipoLocal)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Context.Request.Query["index"]">Editar</a> |
+    <a asp-action="Index">Voltar para Lista</a>
+</div>
